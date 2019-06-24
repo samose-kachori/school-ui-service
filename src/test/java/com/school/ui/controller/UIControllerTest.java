@@ -2,6 +2,7 @@ package com.school.ui.controller;
 
 import com.school.ui.constant.MockConstant;
 import com.school.ui.rest.service.UIService;
+import com.school.ui.util.ExpectedUtil;
 import com.school.ui.util.MockUtil;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -44,7 +45,7 @@ public class UIControllerTest
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk()).andReturn().getResponse();
 
-        JSONAssert.assertEquals(mockList.toString(), response.getContentAsString(), true);
+        JSONAssert.assertEquals(ExpectedUtil.getExpectedList().toString(), response.getContentAsString(), true);
 
     }
 }
